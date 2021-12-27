@@ -7,7 +7,7 @@ using System.Collections.ObjectModel;
 
 namespace ArtistsCore
 {
-    class DataAccess
+    public class DataAccess
     {
         public static ArtistEntities connection = new ArtistEntities();
 
