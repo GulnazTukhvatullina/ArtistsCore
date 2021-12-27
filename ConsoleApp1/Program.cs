@@ -8,7 +8,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             var da = new DataAccess();
-            var bp = da.GetArtist();
+            var bp = da.GetHalls();
             Console.WriteLine(bp[0].Name);
         }
     }

@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artists", "..\Artists\Artis
 		{DB3756B1-164C-4D39-9F74-1542D343B816} = {DB3756B1-164C-4D39-9F74-1542D343B816}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtistsWeb", "ArtistsWeb\ArtistsWeb.csproj", "{DF108412-3792-49EC-AFCF-DC0C07F094DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtistWeb", "ArtistWeb\ArtistWeb.csproj", "{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DB3756B1-164C-4D39-9F74-1542D343B816} = {DB3756B1-164C-4D39-9F74-1542D343B816}
 	EndProjectSection
@@ -35,10 +35,10 @@ Global
 		{2C236EC2-026A-41FF-8F4B-5E6CA08CA52F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C236EC2-026A-41FF-8F4B-5E6CA08CA52F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C236EC2-026A-41FF-8F4B-5E6CA08CA52F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF108412-3792-49EC-AFCF-DC0C07F094DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF108412-3792-49EC-AFCF-DC0C07F094DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF108412-3792-49EC-AFCF-DC0C07F094DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF108412-3792-49EC-AFCF-DC0C07F094DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
