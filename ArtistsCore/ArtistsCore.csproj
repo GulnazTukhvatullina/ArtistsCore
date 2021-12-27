@@ -63,6 +63,7 @@
     <Compile Include="Client.cs">
       <DependentUpon>Model_BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataAccess.cs" />
     <Compile Include="Exhibition.cs">
       <DependentUpon>Model_BD.tt</DependentUpon>
     </Compile>
