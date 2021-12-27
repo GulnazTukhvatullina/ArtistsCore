@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="25d69ca8245e439bb1f068e071d852d9" Name="Diagram1">
+        <EntityTypeShape EntityType="ArtistModel.Admin" Width="1.5" PointX="5.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Artist" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Avtorization" Width="1.5" PointX="8" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Client" Width="1.5" PointX="5.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Exhibition" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Hall" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Institution" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Institution_Hall" Width="1.5" PointX="3" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Owner" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Painting_artist" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Type_exhibition" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArtistModel.Type_owner" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="ArtistModel.FK_Avtorization_Admin" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Painting_artist_Artist" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Avtorization_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Exhibition_Hall" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Exhibition_Type_exhibition" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Painting_artist_Exhibition1" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Institution_Hall_Hall" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Owner_Hall1" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Painting_artist_Hall" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Institution_Hall_Institution" ManuallyRouted="false" />
+        <AssociationConnector Association="ArtistModel.FK_Owner_Type_owner" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
