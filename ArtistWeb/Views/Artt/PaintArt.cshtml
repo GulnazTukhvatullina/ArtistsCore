@@ -1,0 +1,43 @@
+﻿@using ArtistsCore
+@{
+    ViewData["Title"] = "Page";
+}
+@model List<Painting_artist>
+
+<div class="text-center">
+    <h1 class="display-4">Картины</h1>
+</div>
+<br />
+<div class="row justify-content-end">
+    <a class="btn btn-primary" asp-controller="Artt"
+       asp-action="Add" role="button">Add</a>
+</div>
+<br />
+
+<div class="row">
+    @foreach (var command in Model)
+    {
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div>
+                        <img class="card-img-top" width="300" height="350" src="@command.Image"
+                             alt="@command.Name" />
+                    </div>
+
+                    <h2 class="card-title text-center">
+                        <a href="@command.Name" target=_blank>@command.Name</a>
+                    </h2>
+
+                    <div class="text-center">
+                        <a class="btn btn-danger" asp-controller="Commands"
+                           asp-action="Update" asp-route-id="@command.ID_painting_artist"
+                           role="button">
+                            Update
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

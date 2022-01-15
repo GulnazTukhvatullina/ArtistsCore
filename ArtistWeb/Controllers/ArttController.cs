@@ -15,6 +15,28 @@ namespace ArtistWeb.Controllers
             return View(art);
         }
 
+        public IActionResult PaintArt()
+        {
+            var paint = DataAccess.GetPainting_Artists();
+            return View(paint);
+        }
 
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(Artist artist)
+        {
+            ArtistStorage.Add(artist);
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult Remove(int ID_artist)
+        {
+            ArtistStorage.RemoveByName(ID_artist);
+            return RedirectToAction("Index");
+        }
     }
 }

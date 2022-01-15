@@ -99,6 +99,8 @@
     <Compile Include="Owner.cs">
       <DependentUpon>Model_BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="PaintArt.cs" />
+    <Compile Include="PaintArtStorage.cs" />
     <Compile Include="Painting_artist.cs">
       <DependentUpon>Model_BD.tt</DependentUpon>
     </Compile>

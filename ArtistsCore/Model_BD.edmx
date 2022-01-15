@@ -27,6 +27,7 @@
           <Property Name="Country" Type="varchar" MaxLength="50" />
           <Property Name="Image" Type="varchar" MaxLength="50" />
           <Property Name="Deleted" Type="bit" />
+          <Property Name="Add" Type="bit" />
         </EntityType>
         <EntityType Name="Avtorization">
           <Key>
@@ -410,6 +411,7 @@
           <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Deleted" Type="Boolean" />
           <NavigationProperty Name="Painting_artist" Relationship="ArtistModel.FK_Painting_artist_Artist" FromRole="Artist" ToRole="Painting_artist" />
+          <Property Name="Add" Type="Boolean" />
         </EntityType>
         <EntityType Name="Avtorization">
           <Key>
@@ -686,6 +688,7 @@
           <EntitySetMapping Name="Artist">
             <EntityTypeMapping TypeName="ArtistModel.Artist">
               <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="Add" ColumnName="Add" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
