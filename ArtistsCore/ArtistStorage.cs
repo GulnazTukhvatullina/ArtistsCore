@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace ArtistsCore
 {
+    //Не следует испольовать статический класс
     public static class ArtistStorage
     {
         public static List<Artist> art { get; private set; } = DataAccess.GetArtist();

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ArtistsCore
 {
+    //Критический : класс внутри класса
     class PaintArt
     {
         public class MyPainting_artist

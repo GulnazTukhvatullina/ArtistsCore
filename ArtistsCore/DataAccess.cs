@@ -37,10 +37,11 @@ namespace ArtistsCore
             }
             catch (Exception ex)
             {
+                //Блок try-catch написан но ошибка не обрабатывается
             }
         }
 
-        public static void DeleteArtist(Artist art)
+        public static void DeleteArtist(Artist art) //Следует написать модуль try-catch
         {
             bd_connections.connection.Artist.Remove(art);
             bd_connections.connection.SaveChanges();
@@ -63,6 +64,7 @@ namespace ArtistsCore
             return paints;
         }
 
+        //Хорошее решение
         public static List<Exhibition> GetExhibitions()
         {
             return new List<Exhibition>(bd_connections.connection.Exhibition);

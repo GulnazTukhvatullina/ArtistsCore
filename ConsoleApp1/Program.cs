@@ -8,7 +8,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            while (true)
+            while (true) //Критическое : зацикливание
             {
                 string command = Console.ReadLine();
                 string values = Console.ReadLine();
@@ -18,6 +18,7 @@ namespace ConsoleApp1
         }
         private static void PrintArtist(string command, string values)
         {
+            //Хорошее решение
             string[] value = values.Split(',');
             switch(command)
             {

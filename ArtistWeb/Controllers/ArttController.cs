@@ -7,11 +7,11 @@ using ArtistsCore;
 
 namespace ArtistWeb.Controllers
 {
-    public class ArttController : Controller
+    public class ArttController : Controller //Можно улучшить: исправить название контролера
     {
         public IActionResult Index()
         {
-            var art = DataAccess.GetArtist();
+            var art = DataAccess.GetArtist(); //Можно улучшить : исправить название переменной
             return View(art);
         }
 
