@@ -4,31 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="25d69ca8245e439bb1f068e071d852d9" Name="Diagram1">
-        <EntityTypeShape EntityType="ArtistModel.Admin" Width="1.5" PointX="5.75" PointY="9.375" />
-        <EntityTypeShape EntityType="ArtistModel.Artist" Width="1.5" PointX="6" PointY="0.75" />
-        <EntityTypeShape EntityType="ArtistModel.Avtorization" Width="1.5" PointX="8" PointY="9.125" />
-        <EntityTypeShape EntityType="ArtistModel.Client" Width="1.5" PointX="5.75" PointY="12.375" />
-        <EntityTypeShape EntityType="ArtistModel.Exhibition" Width="1.5" PointX="3" PointY="5" />
-        <EntityTypeShape EntityType="ArtistModel.Hall" Width="1.5" PointX="0.75" PointY="5" />
-        <EntityTypeShape EntityType="ArtistModel.Institution" Width="1.5" PointX="0.75" PointY="2.375" />
-        <EntityTypeShape EntityType="ArtistModel.Institution_Hall" Width="1.5" PointX="3" PointY="2.25" />
-        <EntityTypeShape EntityType="ArtistModel.Owner" Width="1.5" PointX="6" PointY="5" />
-        <EntityTypeShape EntityType="ArtistModel.Painting_artist" Width="1.5" PointX="8.25" PointY="4.375" />
-        <EntityTypeShape EntityType="ArtistModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.875" />
-        <EntityTypeShape EntityType="ArtistModel.Type_exhibition" Width="1.5" PointX="0.75" PointY="8.375" />
-        <EntityTypeShape EntityType="ArtistModel.Type_owner" Width="1.5" PointX="3.75" PointY="8.375" />
-        <AssociationConnector Association="ArtistModel.FK_Avtorization_Admin" />
-        <AssociationConnector Association="ArtistModel.FK_Painting_artist_Artist" />
-        <AssociationConnector Association="ArtistModel.FK_Avtorization_Client" />
-        <AssociationConnector Association="ArtistModel.FK_Exhibition_Hall" />
-        <AssociationConnector Association="ArtistModel.FK_Exhibition_Type_exhibition" />
-        <AssociationConnector Association="ArtistModel.FK_Painting_artist_Exhibition1" />
-        <AssociationConnector Association="ArtistModel.FK_Institution_Hall_Hall" />
-        <AssociationConnector Association="ArtistModel.FK_Owner_Hall1" />
-        <AssociationConnector Association="ArtistModel.FK_Painting_artist_Hall" />
-        <AssociationConnector Association="ArtistModel.FK_Institution_Hall_Institution" />
-        <AssociationConnector Association="ArtistModel.FK_Owner_Type_owner" />
+      <Diagram DiagramId="25d69ca8245e439bb1f068e071d852d9" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="ArtistModel.Exhibition" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="ArtistModel.Information_artist" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="ArtistModel.Painting_artist" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ArtistModel.Role" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ArtistModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ArtistModel.Users" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="ArtistModel.FK_Exhibition_Users" />
+        <AssociationConnector Association="ArtistModel.FK_Users_Information_artist" />
+        <AssociationConnector Association="ArtistModel.FK_Users_Role" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

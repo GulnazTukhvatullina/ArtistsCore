@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ArtistsCore;
 
-namespace ConsoleApp1
+namespace ArtistsConsole
 {
     public class Program
     {
@@ -12,45 +12,47 @@ namespace ConsoleApp1
             {
                 string command = Console.ReadLine();
                 string values = Console.ReadLine();
-                PrintArtist(command, values);
+                Artist(command, values);
             }
 
         }
-        private static void PrintArtist(string command, string values)
+        private static void Artist(string command, string values)
         {
-            string[] value = values.Split(',');
+            string[] value = values.Split(' ');
             switch(command)
             {
-                case "Get":
-                    List<Artist> art = DataAccess.GetArtist();
-                    foreach (Artist i in art)
+                case "Get artist":
+                    List<Users> art = DataAccess.GetArtist();
+                    foreach (Users i in art)
                     {
-                        Console.WriteLine($"{i.ID_artist}, {i.Surname}, {i.Name}, {i.Middle_name}, {i.Birth_date}, {i.Date_death}, {i.Country}");
+                        if (i.ID_role == 2)
+                        {
+                            Console.WriteLine($"{i.ID_user}, {i.Surname} {i.Name} ");
+                            Console.WriteLine("Дата рождения:" + $"{i.Information_artist.Birth_date}");
+                            Console.WriteLine("Краткая биография:" + $"{i.Information_artist.Biography}");
+                        }
                     }
                     break;
-                case "Add":
-                    DataAccess.AddArtist(new Artist()
+
+                case "Get paint":
+                    List<Painting_artist> paint = DataAccess.GetPaint();
+                    foreach (Painting_artist i in paint)
                     {
-                        ID_artist = Convert.ToInt32(value[0]),
-                        Surname = value[1],
-                        Name = value[2],
-                        Middle_name = value[3],
-                        Birth_date = Convert.ToDateTime(value[4]),
-                        Date_death = Convert.ToDateTime(value[5]),
-                        Country = value[6]
-                    });
+                        Console.WriteLine($"{i.ID_painting_artist}, {i.Name}");
+                        Console.WriteLine($"{i.Creation_date}");
+                        Console.WriteLine($"{ i.Execution}");
+                    }
                     break;
-                case "Remove":
-                    DataAccess.DeleteArtist(new Artist()
+
+                case "Get exhibition":
+                    List<Exhibition> exhibition = DataAccess.GetExhibitions();
+                    foreach (Exhibition i in exhibition)
                     {
-                        ID_artist = Convert.ToInt32(value[0]),
-                        Surname = value[1],
-                        Name = value[2],
-                        Middle_name = value[3],
-                        Birth_date = Convert.ToDateTime(value[4]),
-                        Date_death = Convert.ToDateTime(value[5]),
-                        Country = value[6]
-                    });
+                        Console.WriteLine($"{i.ID_exhibition}, {i.Name}");
+                        Console.WriteLine($"{i.Users.Surname}");
+                        Console.WriteLine($"{i.Date}");
+                        Console.WriteLine($"{ i.Information}");
+                    }
                     break;
             }
         }

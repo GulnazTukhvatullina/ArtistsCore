@@ -5,17 +5,21 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtistsCore", "ArtistsCore\ArtistsCore.csproj", "{DB3756B1-164C-4D39-9F74-1542D343B816}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{75C478D4-522D-4004-BB72-11815AA8DD21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtistsConsole", "ConsoleApp1\ArtistsConsole.csproj", "{75C478D4-522D-4004-BB72-11815AA8DD21}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artists", "..\Artists\Artists\Artists.csproj", "{2C236EC2-026A-41FF-8F4B-5E6CA08CA52F}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DB3756B1-164C-4D39-9F74-1542D343B816} = {DB3756B1-164C-4D39-9F74-1542D343B816}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtistWeb", "ArtistWeb\ArtistWeb.csproj", "{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtistWeb", "ArtistWeb\ArtistWeb.csproj", "{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{DB3756B1-164C-4D39-9F74-1542D343B816} = {DB3756B1-164C-4D39-9F74-1542D343B816}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingArtist", "TestingArtist\TestingArtist.csproj", "{4EFBB8DA-D523-4ABA-B10D-A9B9201EFE1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{BCEBDB54-D50A-4943-AE5B-9E87F5EE9791}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD69E31A-3A8E-426A-AAE5-FCA524E6417B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EFBB8DA-D523-4ABA-B10D-A9B9201EFE1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EFBB8DA-D523-4ABA-B10D-A9B9201EFE1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EFBB8DA-D523-4ABA-B10D-A9B9201EFE1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EFBB8DA-D523-4ABA-B10D-A9B9201EFE1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCEBDB54-D50A-4943-AE5B-9E87F5EE9791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCEBDB54-D50A-4943-AE5B-9E87F5EE9791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCEBDB54-D50A-4943-AE5B-9E87F5EE9791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCEBDB54-D50A-4943-AE5B-9E87F5EE9791}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

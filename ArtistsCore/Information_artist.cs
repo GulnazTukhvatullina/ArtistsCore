@@ -12,18 +12,21 @@ namespace ArtistsCore
     using System;
     using System.Collections.Generic;
     
-    public partial class Institution
+    public partial class Information_artist
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Institution()
+        public Information_artist()
         {
-            this.Institution_Hall = new HashSet<Institution_Hall>();
+            this.Users = new HashSet<Users>();
         }
     
-        public int ID_institution { get; set; }
-        public string Name { get; set; }
+        public int ID_info { get; set; }
+        public Nullable<System.DateTime> Birth_date { get; set; }
+        public byte[] Image { get; set; }
+        public bool Deleted { get; set; }
+        public string Biography { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Institution_Hall> Institution_Hall { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

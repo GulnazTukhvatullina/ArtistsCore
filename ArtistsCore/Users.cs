@@ -12,20 +12,26 @@ namespace ArtistsCore
     using System;
     using System.Collections.Generic;
     
-    public partial class Admin
+    public partial class Users
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Admin()
+        public Users()
         {
-            this.Avtorization = new HashSet<Avtorization>();
+            this.Exhibition = new HashSet<Exhibition>();
         }
     
-        public int ID_Admin { get; set; }
+        public int ID_user { get; set; }
+        public Nullable<int> ID_role { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public string Surname { get; set; }
         public string Name { get; set; }
+        public Nullable<bool> Deleted { get; set; }
+        public Nullable<int> ID_info { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Avtorization> Avtorization { get; set; }
+        public virtual ICollection<Exhibition> Exhibition { get; set; }
+        public virtual Information_artist Information_artist { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

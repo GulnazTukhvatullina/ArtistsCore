@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ArtistsCore
 {
-    class PaintArtStorage
+    class ExhibitionsStorage
     {
-        public static List<Painting_artist> paint { get; private set; } = DataAccess.GetPaint();
+        //public static List<Exhibitions> exhibition { get; private set; } = DataAccess.GetExhibitions();
     }
 }

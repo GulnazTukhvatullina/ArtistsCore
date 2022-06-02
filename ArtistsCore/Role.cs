@@ -12,26 +12,18 @@ namespace ArtistsCore
     using System;
     using System.Collections.Generic;
     
-    public partial class Artist
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Artist()
+        public Role()
         {
-            this.Painting_artist = new HashSet<Painting_artist>();
+            this.Users = new HashSet<Users>();
         }
     
-        public int ID_artist { get; set; }
-        public string Surname { get; set; }
-        public string Name { get; set; }
-        public string Middle_name { get; set; }
-        public Nullable<System.DateTime> Birth_date { get; set; }
-        public Nullable<System.DateTime> Date_death { get; set; }
-        public string Country { get; set; }
-        public string Image { get; set; }
-        public Nullable<bool> Deleted { get; set; }
-        public Nullable<bool> Add { get; set; }
+        public int ID_role { get; set; }
+        public string Name_role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Painting_artist> Painting_artist { get; set; }
+        public virtual ICollection<Users> Users { get; set; }
     }
 }

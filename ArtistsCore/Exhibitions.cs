@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ArtistsCore
 {
-    public class User
+    class Exhibitions
     {
-        public string ID_user { get; set; }
-        public string Surname { get; set; }
+        public string ID_exhibition { get; set; }
         public string Name { get; set; }
+        public string Date { get; set; }
         public string Image { get; set; }
-        public string ID_role { get; set; }
-        public string ID_info { get; set; }
+        public string Information { get; set; }
+        public string ID_user { get; set; }
     }
 }

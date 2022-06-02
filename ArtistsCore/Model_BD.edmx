@@ -5,109 +5,47 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище ArtistModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="ID_Admin" />
-          </Key>
-          <Property Name="ID_Admin" Type="int" Nullable="false" />
-          <Property Name="Login" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Artist">
-          <Key>
-            <PropertyRef Name="ID_artist" />
-          </Key>
-          <Property Name="ID_artist" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Surname" Type="varchar" MaxLength="50" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Middle_name" Type="varchar" MaxLength="50" />
-          <Property Name="Birth_date" Type="date" />
-          <Property Name="Date_death" Type="date" />
-          <Property Name="Country" Type="varchar" MaxLength="50" />
-          <Property Name="Image" Type="varchar" MaxLength="50" />
-          <Property Name="Deleted" Type="bit" />
-          <Property Name="Add" Type="bit" />
-        </EntityType>
-        <EntityType Name="Avtorization">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Login" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="ID_Admin" Type="int" />
-          <Property Name="ID_Client" Type="int" />
-        </EntityType>
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="ID_Client" />
-          </Key>
-          <Property Name="ID_Client" Type="int" Nullable="false" />
-          <Property Name="Login" Type="varchar" MaxLength="50" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-        </EntityType>
         <EntityType Name="Exhibition">
           <Key>
             <PropertyRef Name="ID_exhibition" />
           </Key>
-          <Property Name="ID_exhibition" Type="int" Nullable="false" />
+          <Property Name="ID_exhibition" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Date" Type="date" />
-          <Property Name="ID_type_exhibition" Type="int" />
-          <Property Name="ID_Hall" Type="int" />
+          <Property Name="ID_user" Type="int" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Information" Type="varchar(max)" />
+          <Property Name="Deleted" Type="bit" />
         </EntityType>
-        <EntityType Name="Hall">
+        <EntityType Name="Information_artist">
           <Key>
-            <PropertyRef Name="ID_Hall" />
+            <PropertyRef Name="ID_info" />
           </Key>
-          <Property Name="ID_Hall" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Address" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Institution">
-          <Key>
-            <PropertyRef Name="ID_institution" />
-          </Key>
-          <Property Name="ID_institution" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Institution_Hall">
-          <Key>
-            <PropertyRef Name="ID_institution" />
-            <PropertyRef Name="ID_hall" />
-          </Key>
-          <Property Name="ID_institution" Type="int" Nullable="false" />
-          <Property Name="ID_hall" Type="int" Nullable="false" />
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Owner">
-          <Key>
-            <PropertyRef Name="ID_owner" />
-          </Key>
-          <Property Name="ID_owner" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-          <Property Name="Telephone" Type="int" />
-          <Property Name="ID_Hall" Type="int" />
-          <Property Name="ID_type_owner" Type="int" />
+          <Property Name="ID_info" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Birth_date" Type="date" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="Biography" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Painting_artist">
           <Key>
             <PropertyRef Name="ID_painting_artist" />
           </Key>
-          <Property Name="ID_painting_artist" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_painting_artist" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Creation_date" Type="date" />
-          <Property Name="Execution" Type="varchar" MaxLength="50" />
-          <Property Name="Height" Type="int" />
-          <Property Name="Width" Type="int" />
-          <Property Name="ID_artist" Type="int" />
-          <Property Name="ID_exhibition" Type="int" />
-          <Property Name="ID_Hall" Type="int" />
-          <Property Name="Image" Type="varchar" MaxLength="50" />
-          <Property Name="Deleted" Type="bit" />
+          <Property Name="Execution" Type="varchar(max)" />
+          <Property Name="Image" Type="varbinary(max)" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+          <Property Name="ID_user" Type="int" />
+          <Property Name="Accepted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="int" Nullable="false" />
+          <Property Name="Name_role" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -119,209 +57,73 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="Type_exhibition">
+        <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="ID_type_exhibition" />
+            <PropertyRef Name="ID_user" />
           </Key>
-          <Property Name="ID_type_exhibition" Type="int" Nullable="false" />
+          <Property Name="ID_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_role" Type="int" />
+          <Property Name="Login" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="ID_info" Type="int" />
         </EntityType>
-        <EntityType Name="Type_owner">
-          <Key>
-            <PropertyRef Name="ID_type_owner" />
-          </Key>
-          <Property Name="ID_type_owner" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <Association Name="FK_Avtorization_Admin">
-          <End Role="Admin" Type="Self.Admin" Multiplicity="0..1" />
-          <End Role="Avtorization" Type="Self.Avtorization" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Admin">
-              <PropertyRef Name="ID_Admin" />
-            </Principal>
-            <Dependent Role="Avtorization">
-              <PropertyRef Name="ID_Admin" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Avtorization_Client">
-          <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
-          <End Role="Avtorization" Type="Self.Avtorization" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ID_Client" />
-            </Principal>
-            <Dependent Role="Avtorization">
-              <PropertyRef Name="ID_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Exhibition_Hall">
-          <End Role="Hall" Type="Self.Hall" Multiplicity="0..1" />
+        <Association Name="FK_Exhibition_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
           <End Role="Exhibition" Type="Self.Exhibition" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Hall">
-              <PropertyRef Name="ID_Hall" />
+            <Principal Role="Users">
+              <PropertyRef Name="ID_user" />
             </Principal>
             <Dependent Role="Exhibition">
-              <PropertyRef Name="ID_Hall" />
+              <PropertyRef Name="ID_user" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Exhibition_Type_exhibition">
-          <End Role="Type_exhibition" Type="Self.Type_exhibition" Multiplicity="0..1" />
-          <End Role="Exhibition" Type="Self.Exhibition" Multiplicity="*" />
+        <Association Name="FK_Users_Information_artist">
+          <End Role="Information_artist" Type="Self.Information_artist" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Type_exhibition">
-              <PropertyRef Name="ID_type_exhibition" />
+            <Principal Role="Information_artist">
+              <PropertyRef Name="ID_info" />
             </Principal>
-            <Dependent Role="Exhibition">
-              <PropertyRef Name="ID_type_exhibition" />
+            <Dependent Role="Users">
+              <PropertyRef Name="ID_info" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Institution_Hall_Hall">
-          <End Role="Hall" Type="Self.Hall" Multiplicity="1" />
-          <End Role="Institution_Hall" Type="Self.Institution_Hall" Multiplicity="*" />
+        <Association Name="FK_Users_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Hall">
-              <PropertyRef Name="ID_Hall" />
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
             </Principal>
-            <Dependent Role="Institution_Hall">
-              <PropertyRef Name="ID_hall" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Institution_Hall_Institution">
-          <End Role="Institution" Type="Self.Institution" Multiplicity="1" />
-          <End Role="Institution_Hall" Type="Self.Institution_Hall" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Institution">
-              <PropertyRef Name="ID_institution" />
-            </Principal>
-            <Dependent Role="Institution_Hall">
-              <PropertyRef Name="ID_institution" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Owner_Hall1">
-          <End Role="Hall" Type="Self.Hall" Multiplicity="0..1" />
-          <End Role="Owner" Type="Self.Owner" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hall">
-              <PropertyRef Name="ID_Hall" />
-            </Principal>
-            <Dependent Role="Owner">
-              <PropertyRef Name="ID_Hall" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Owner_Type_owner">
-          <End Role="Type_owner" Type="Self.Type_owner" Multiplicity="0..1" />
-          <End Role="Owner" Type="Self.Owner" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Type_owner">
-              <PropertyRef Name="ID_type_owner" />
-            </Principal>
-            <Dependent Role="Owner">
-              <PropertyRef Name="ID_type_owner" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Painting_artist_Artist">
-          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
-          <End Role="Painting_artist" Type="Self.Painting_artist" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Artist">
-              <PropertyRef Name="ID_artist" />
-            </Principal>
-            <Dependent Role="Painting_artist">
-              <PropertyRef Name="ID_artist" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Painting_artist_Exhibition1">
-          <End Role="Exhibition" Type="Self.Exhibition" Multiplicity="0..1" />
-          <End Role="Painting_artist" Type="Self.Painting_artist" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Exhibition">
-              <PropertyRef Name="ID_exhibition" />
-            </Principal>
-            <Dependent Role="Painting_artist">
-              <PropertyRef Name="ID_exhibition" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Painting_artist_Hall">
-          <End Role="Hall" Type="Self.Hall" Multiplicity="0..1" />
-          <End Role="Painting_artist" Type="Self.Painting_artist" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hall">
-              <PropertyRef Name="ID_Hall" />
-            </Principal>
-            <Dependent Role="Painting_artist">
-              <PropertyRef Name="ID_Hall" />
+            <Dependent Role="Users">
+              <PropertyRef Name="ID_role" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище ArtistModelContainer">
-          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Artist" EntityType="Self.Artist" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Avtorization" EntityType="Self.Avtorization" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Exhibition" EntityType="Self.Exhibition" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Hall" EntityType="Self.Hall" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Institution" EntityType="Self.Institution" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Institution_Hall" EntityType="Self.Institution_Hall" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Owner" EntityType="Self.Owner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Information_artist" EntityType="Self.Information_artist" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Painting_artist" EntityType="Self.Painting_artist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Type_exhibition" EntityType="Self.Type_exhibition" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Type_owner" EntityType="Self.Type_owner" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Avtorization_Admin" Association="Self.FK_Avtorization_Admin">
-            <End Role="Admin" EntitySet="Admin" />
-            <End Role="Avtorization" EntitySet="Avtorization" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Avtorization_Client" Association="Self.FK_Avtorization_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Avtorization" EntitySet="Avtorization" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Exhibition_Hall" Association="Self.FK_Exhibition_Hall">
-            <End Role="Hall" EntitySet="Hall" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Exhibition_Users" Association="Self.FK_Exhibition_Users">
+            <End Role="Users" EntitySet="Users" />
             <End Role="Exhibition" EntitySet="Exhibition" />
           </AssociationSet>
-          <AssociationSet Name="FK_Exhibition_Type_exhibition" Association="Self.FK_Exhibition_Type_exhibition">
-            <End Role="Type_exhibition" EntitySet="Type_exhibition" />
-            <End Role="Exhibition" EntitySet="Exhibition" />
+          <AssociationSet Name="FK_Users_Information_artist" Association="Self.FK_Users_Information_artist">
+            <End Role="Information_artist" EntitySet="Information_artist" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK_Institution_Hall_Hall" Association="Self.FK_Institution_Hall_Hall">
-            <End Role="Hall" EntitySet="Hall" />
-            <End Role="Institution_Hall" EntitySet="Institution_Hall" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Institution_Hall_Institution" Association="Self.FK_Institution_Hall_Institution">
-            <End Role="Institution" EntitySet="Institution" />
-            <End Role="Institution_Hall" EntitySet="Institution_Hall" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Owner_Hall1" Association="Self.FK_Owner_Hall1">
-            <End Role="Hall" EntitySet="Hall" />
-            <End Role="Owner" EntitySet="Owner" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Owner_Type_owner" Association="Self.FK_Owner_Type_owner">
-            <End Role="Type_owner" EntitySet="Type_owner" />
-            <End Role="Owner" EntitySet="Owner" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Painting_artist_Artist" Association="Self.FK_Painting_artist_Artist">
-            <End Role="Artist" EntitySet="Artist" />
-            <End Role="Painting_artist" EntitySet="Painting_artist" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Painting_artist_Exhibition1" Association="Self.FK_Painting_artist_Exhibition1">
-            <End Role="Exhibition" EntitySet="Exhibition" />
-            <End Role="Painting_artist" EntitySet="Painting_artist" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Painting_artist_Hall" Association="Self.FK_Painting_artist_Hall">
-            <End Role="Hall" EntitySet="Hall" />
-            <End Role="Painting_artist" EntitySet="Painting_artist" />
+          <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -329,187 +131,69 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ArtistModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ArtistEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Admin" EntityType="ArtistModel.Admin" />
-          <EntitySet Name="Artist" EntityType="ArtistModel.Artist" />
-          <EntitySet Name="Avtorization" EntityType="ArtistModel.Avtorization" />
-          <EntitySet Name="Client" EntityType="ArtistModel.Client" />
           <EntitySet Name="Exhibition" EntityType="ArtistModel.Exhibition" />
-          <EntitySet Name="Hall" EntityType="ArtistModel.Hall" />
-          <EntitySet Name="Institution" EntityType="ArtistModel.Institution" />
-          <EntitySet Name="Institution_Hall" EntityType="ArtistModel.Institution_Hall" />
-          <EntitySet Name="Owner" EntityType="ArtistModel.Owner" />
+          <EntitySet Name="Information_artist" EntityType="ArtistModel.Information_artist" />
           <EntitySet Name="Painting_artist" EntityType="ArtistModel.Painting_artist" />
+          <EntitySet Name="Role" EntityType="ArtistModel.Role" />
           <EntitySet Name="sysdiagrams" EntityType="ArtistModel.sysdiagrams" />
-          <EntitySet Name="Type_exhibition" EntityType="ArtistModel.Type_exhibition" />
-          <EntitySet Name="Type_owner" EntityType="ArtistModel.Type_owner" />
-          <AssociationSet Name="FK_Avtorization_Admin" Association="ArtistModel.FK_Avtorization_Admin">
-            <End Role="Admin" EntitySet="Admin" />
-            <End Role="Avtorization" EntitySet="Avtorization" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Painting_artist_Artist" Association="ArtistModel.FK_Painting_artist_Artist">
-            <End Role="Artist" EntitySet="Artist" />
-            <End Role="Painting_artist" EntitySet="Painting_artist" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Avtorization_Client" Association="ArtistModel.FK_Avtorization_Client">
-            <End Role="Client" EntitySet="Client" />
-            <End Role="Avtorization" EntitySet="Avtorization" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Exhibition_Hall" Association="ArtistModel.FK_Exhibition_Hall">
-            <End Role="Hall" EntitySet="Hall" />
+          <EntitySet Name="Users" EntityType="ArtistModel.Users" />
+          <AssociationSet Name="FK_Exhibition_Users" Association="ArtistModel.FK_Exhibition_Users">
+            <End Role="Users" EntitySet="Users" />
             <End Role="Exhibition" EntitySet="Exhibition" />
           </AssociationSet>
-          <AssociationSet Name="FK_Exhibition_Type_exhibition" Association="ArtistModel.FK_Exhibition_Type_exhibition">
-            <End Role="Type_exhibition" EntitySet="Type_exhibition" />
-            <End Role="Exhibition" EntitySet="Exhibition" />
+          <AssociationSet Name="FK_Users_Information_artist" Association="ArtistModel.FK_Users_Information_artist">
+            <End Role="Information_artist" EntitySet="Information_artist" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
-          <AssociationSet Name="FK_Painting_artist_Exhibition1" Association="ArtistModel.FK_Painting_artist_Exhibition1">
-            <End Role="Exhibition" EntitySet="Exhibition" />
-            <End Role="Painting_artist" EntitySet="Painting_artist" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Institution_Hall_Hall" Association="ArtistModel.FK_Institution_Hall_Hall">
-            <End Role="Hall" EntitySet="Hall" />
-            <End Role="Institution_Hall" EntitySet="Institution_Hall" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Owner_Hall1" Association="ArtistModel.FK_Owner_Hall1">
-            <End Role="Hall" EntitySet="Hall" />
-            <End Role="Owner" EntitySet="Owner" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Painting_artist_Hall" Association="ArtistModel.FK_Painting_artist_Hall">
-            <End Role="Hall" EntitySet="Hall" />
-            <End Role="Painting_artist" EntitySet="Painting_artist" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Institution_Hall_Institution" Association="ArtistModel.FK_Institution_Hall_Institution">
-            <End Role="Institution" EntitySet="Institution" />
-            <End Role="Institution_Hall" EntitySet="Institution_Hall" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Owner_Type_owner" Association="ArtistModel.FK_Owner_Type_owner">
-            <End Role="Type_owner" EntitySet="Type_owner" />
-            <End Role="Owner" EntitySet="Owner" />
+          <AssociationSet Name="FK_Users_Role" Association="ArtistModel.FK_Users_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="ID_Admin" />
-          </Key>
-          <Property Name="ID_Admin" Type="Int32" Nullable="false" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Avtorization" Relationship="ArtistModel.FK_Avtorization_Admin" FromRole="Admin" ToRole="Avtorization" />
-        </EntityType>
-        <EntityType Name="Artist">
-          <Key>
-            <PropertyRef Name="ID_artist" />
-          </Key>
-          <Property Name="ID_artist" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Middle_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Birth_date" Type="DateTime" Precision="0" />
-          <Property Name="Date_death" Type="DateTime" Precision="0" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Deleted" Type="Boolean" />
-          <NavigationProperty Name="Painting_artist" Relationship="ArtistModel.FK_Painting_artist_Artist" FromRole="Artist" ToRole="Painting_artist" />
-          <Property Name="Add" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="Avtorization">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Admin" Type="Int32" />
-          <Property Name="ID_Client" Type="Int32" />
-          <NavigationProperty Name="Admin" Relationship="ArtistModel.FK_Avtorization_Admin" FromRole="Avtorization" ToRole="Admin" />
-          <NavigationProperty Name="Client" Relationship="ArtistModel.FK_Avtorization_Client" FromRole="Avtorization" ToRole="Client" />
-        </EntityType>
-        <EntityType Name="Client">
-          <Key>
-            <PropertyRef Name="ID_Client" />
-          </Key>
-          <Property Name="ID_Client" Type="Int32" Nullable="false" />
-          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Avtorization" Relationship="ArtistModel.FK_Avtorization_Client" FromRole="Client" ToRole="Avtorization" />
-        </EntityType>
         <EntityType Name="Exhibition">
           <Key>
             <PropertyRef Name="ID_exhibition" />
           </Key>
-          <Property Name="ID_exhibition" Type="Int32" Nullable="false" />
+          <Property Name="ID_exhibition" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="DateTime" Precision="0" />
-          <Property Name="ID_type_exhibition" Type="Int32" />
-          <Property Name="ID_Hall" Type="Int32" />
-          <NavigationProperty Name="Hall" Relationship="ArtistModel.FK_Exhibition_Hall" FromRole="Exhibition" ToRole="Hall" />
-          <NavigationProperty Name="Type_exhibition" Relationship="ArtistModel.FK_Exhibition_Type_exhibition" FromRole="Exhibition" ToRole="Type_exhibition" />
-          <NavigationProperty Name="Painting_artist" Relationship="ArtistModel.FK_Painting_artist_Exhibition1" FromRole="Exhibition" ToRole="Painting_artist" />
+          <Property Name="ID_user" Type="Int32" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Information" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Deleted" Type="Boolean" />
+          <NavigationProperty Name="Users" Relationship="ArtistModel.FK_Exhibition_Users" FromRole="Exhibition" ToRole="Users" />
         </EntityType>
-        <EntityType Name="Hall">
+        <EntityType Name="Information_artist">
           <Key>
-            <PropertyRef Name="ID_Hall" />
+            <PropertyRef Name="ID_info" />
           </Key>
-          <Property Name="ID_Hall" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Exhibition" Relationship="ArtistModel.FK_Exhibition_Hall" FromRole="Hall" ToRole="Exhibition" />
-          <NavigationProperty Name="Institution_Hall" Relationship="ArtistModel.FK_Institution_Hall_Hall" FromRole="Hall" ToRole="Institution_Hall" />
-          <NavigationProperty Name="Owner" Relationship="ArtistModel.FK_Owner_Hall1" FromRole="Hall" ToRole="Owner" />
-          <NavigationProperty Name="Painting_artist" Relationship="ArtistModel.FK_Painting_artist_Hall" FromRole="Hall" ToRole="Painting_artist" />
-        </EntityType>
-        <EntityType Name="Institution">
-          <Key>
-            <PropertyRef Name="ID_institution" />
-          </Key>
-          <Property Name="ID_institution" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Institution_Hall" Relationship="ArtistModel.FK_Institution_Hall_Institution" FromRole="Institution" ToRole="Institution_Hall" />
-        </EntityType>
-        <EntityType Name="Institution_Hall">
-          <Key>
-            <PropertyRef Name="ID_institution" />
-            <PropertyRef Name="ID_hall" />
-          </Key>
-          <Property Name="ID_institution" Type="Int32" Nullable="false" />
-          <Property Name="ID_hall" Type="Int32" Nullable="false" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Hall" Relationship="ArtistModel.FK_Institution_Hall_Hall" FromRole="Institution_Hall" ToRole="Hall" />
-          <NavigationProperty Name="Institution" Relationship="ArtistModel.FK_Institution_Hall_Institution" FromRole="Institution_Hall" ToRole="Institution" />
-        </EntityType>
-        <EntityType Name="Owner">
-          <Key>
-            <PropertyRef Name="ID_owner" />
-          </Key>
-          <Property Name="ID_owner" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Telephone" Type="Int32" />
-          <Property Name="ID_Hall" Type="Int32" />
-          <Property Name="ID_type_owner" Type="Int32" />
-          <NavigationProperty Name="Hall" Relationship="ArtistModel.FK_Owner_Hall1" FromRole="Owner" ToRole="Hall" />
-          <NavigationProperty Name="Type_owner" Relationship="ArtistModel.FK_Owner_Type_owner" FromRole="Owner" ToRole="Type_owner" />
+          <Property Name="ID_info" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Birth_date" Type="DateTime" Precision="0" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="Biography" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="ArtistModel.FK_Users_Information_artist" FromRole="Information_artist" ToRole="Users" />
         </EntityType>
         <EntityType Name="Painting_artist">
           <Key>
             <PropertyRef Name="ID_painting_artist" />
           </Key>
-          <Property Name="ID_painting_artist" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_painting_artist" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Creation_date" Type="DateTime" Precision="0" />
-          <Property Name="Execution" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Height" Type="Int32" />
-          <Property Name="Width" Type="Int32" />
-          <Property Name="ID_artist" Type="Int32" />
-          <Property Name="ID_exhibition" Type="Int32" />
-          <Property Name="ID_Hall" Type="Int32" />
-          <Property Name="Image" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Deleted" Type="Boolean" />
-          <NavigationProperty Name="Artist" Relationship="ArtistModel.FK_Painting_artist_Artist" FromRole="Painting_artist" ToRole="Artist" />
-          <NavigationProperty Name="Exhibition" Relationship="ArtistModel.FK_Painting_artist_Exhibition1" FromRole="Painting_artist" ToRole="Exhibition" />
-          <NavigationProperty Name="Hall" Relationship="ArtistModel.FK_Painting_artist_Hall" FromRole="Painting_artist" ToRole="Hall" />
+          <Property Name="Execution" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <Property Name="ID_user" Type="Int32" />
+          <Property Name="Accepted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID_role" />
+          </Key>
+          <Property Name="ID_role" Type="Int32" Nullable="false" />
+          <Property Name="Name_role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="ArtistModel.FK_Users_Role" FromRole="Role" ToRole="Users" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -521,270 +205,107 @@
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="Type_exhibition">
+        <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="ID_type_exhibition" />
+            <PropertyRef Name="ID_user" />
           </Key>
-          <Property Name="ID_type_exhibition" Type="Int32" Nullable="false" />
+          <Property Name="ID_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_role" Type="Int32" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Exhibition" Relationship="ArtistModel.FK_Exhibition_Type_exhibition" FromRole="Type_exhibition" ToRole="Exhibition" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="ID_info" Type="Int32" />
+          <NavigationProperty Name="Exhibition" Relationship="ArtistModel.FK_Exhibition_Users" FromRole="Users" ToRole="Exhibition" />
+          <NavigationProperty Name="Information_artist" Relationship="ArtistModel.FK_Users_Information_artist" FromRole="Users" ToRole="Information_artist" />
+          <NavigationProperty Name="Role" Relationship="ArtistModel.FK_Users_Role" FromRole="Users" ToRole="Role" />
         </EntityType>
-        <EntityType Name="Type_owner">
-          <Key>
-            <PropertyRef Name="ID_type_owner" />
-          </Key>
-          <Property Name="ID_type_owner" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Owner" Relationship="ArtistModel.FK_Owner_Type_owner" FromRole="Type_owner" ToRole="Owner" />
-        </EntityType>
-        <Association Name="FK_Avtorization_Admin">
-          <End Type="ArtistModel.Admin" Role="Admin" Multiplicity="0..1" />
-          <End Type="ArtistModel.Avtorization" Role="Avtorization" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Admin">
-              <PropertyRef Name="ID_Admin" />
-            </Principal>
-            <Dependent Role="Avtorization">
-              <PropertyRef Name="ID_Admin" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Painting_artist_Artist">
-          <End Type="ArtistModel.Artist" Role="Artist" Multiplicity="0..1" />
-          <End Type="ArtistModel.Painting_artist" Role="Painting_artist" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Artist">
-              <PropertyRef Name="ID_artist" />
-            </Principal>
-            <Dependent Role="Painting_artist">
-              <PropertyRef Name="ID_artist" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Avtorization_Client">
-          <End Type="ArtistModel.Client" Role="Client" Multiplicity="0..1" />
-          <End Type="ArtistModel.Avtorization" Role="Avtorization" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Client">
-              <PropertyRef Name="ID_Client" />
-            </Principal>
-            <Dependent Role="Avtorization">
-              <PropertyRef Name="ID_Client" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Exhibition_Hall">
-          <End Type="ArtistModel.Hall" Role="Hall" Multiplicity="0..1" />
+        <Association Name="FK_Exhibition_Users">
+          <End Type="ArtistModel.Users" Role="Users" Multiplicity="0..1" />
           <End Type="ArtistModel.Exhibition" Role="Exhibition" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Hall">
-              <PropertyRef Name="ID_Hall" />
+            <Principal Role="Users">
+              <PropertyRef Name="ID_user" />
             </Principal>
             <Dependent Role="Exhibition">
-              <PropertyRef Name="ID_Hall" />
+              <PropertyRef Name="ID_user" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Exhibition_Type_exhibition">
-          <End Type="ArtistModel.Type_exhibition" Role="Type_exhibition" Multiplicity="0..1" />
-          <End Type="ArtistModel.Exhibition" Role="Exhibition" Multiplicity="*" />
+        <Association Name="FK_Users_Information_artist">
+          <End Type="ArtistModel.Information_artist" Role="Information_artist" Multiplicity="0..1" />
+          <End Type="ArtistModel.Users" Role="Users" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Type_exhibition">
-              <PropertyRef Name="ID_type_exhibition" />
+            <Principal Role="Information_artist">
+              <PropertyRef Name="ID_info" />
             </Principal>
-            <Dependent Role="Exhibition">
-              <PropertyRef Name="ID_type_exhibition" />
+            <Dependent Role="Users">
+              <PropertyRef Name="ID_info" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Painting_artist_Exhibition1">
-          <End Type="ArtistModel.Exhibition" Role="Exhibition" Multiplicity="0..1" />
-          <End Type="ArtistModel.Painting_artist" Role="Painting_artist" Multiplicity="*" />
+        <Association Name="FK_Users_Role">
+          <End Type="ArtistModel.Role" Role="Role" Multiplicity="0..1" />
+          <End Type="ArtistModel.Users" Role="Users" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Exhibition">
-              <PropertyRef Name="ID_exhibition" />
+            <Principal Role="Role">
+              <PropertyRef Name="ID_role" />
             </Principal>
-            <Dependent Role="Painting_artist">
-              <PropertyRef Name="ID_exhibition" />
+            <Dependent Role="Users">
+              <PropertyRef Name="ID_role" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Institution_Hall_Hall">
-          <End Type="ArtistModel.Hall" Role="Hall" Multiplicity="1" />
-          <End Type="ArtistModel.Institution_Hall" Role="Institution_Hall" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hall">
-              <PropertyRef Name="ID_Hall" />
-            </Principal>
-            <Dependent Role="Institution_Hall">
-              <PropertyRef Name="ID_hall" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Owner_Hall1">
-          <End Type="ArtistModel.Hall" Role="Hall" Multiplicity="0..1" />
-          <End Type="ArtistModel.Owner" Role="Owner" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hall">
-              <PropertyRef Name="ID_Hall" />
-            </Principal>
-            <Dependent Role="Owner">
-              <PropertyRef Name="ID_Hall" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Painting_artist_Hall">
-          <End Type="ArtistModel.Hall" Role="Hall" Multiplicity="0..1" />
-          <End Type="ArtistModel.Painting_artist" Role="Painting_artist" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Hall">
-              <PropertyRef Name="ID_Hall" />
-            </Principal>
-            <Dependent Role="Painting_artist">
-              <PropertyRef Name="ID_Hall" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Institution_Hall_Institution">
-          <End Type="ArtistModel.Institution" Role="Institution" Multiplicity="1" />
-          <End Type="ArtistModel.Institution_Hall" Role="Institution_Hall" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Institution">
-              <PropertyRef Name="ID_institution" />
-            </Principal>
-            <Dependent Role="Institution_Hall">
-              <PropertyRef Name="ID_institution" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Owner_Type_owner">
-          <End Type="ArtistModel.Type_owner" Role="Type_owner" Multiplicity="0..1" />
-          <End Type="ArtistModel.Owner" Role="Owner" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Type_owner">
-              <PropertyRef Name="ID_type_owner" />
-            </Principal>
-            <Dependent Role="Owner">
-              <PropertyRef Name="ID_type_owner" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище ArtistModelContainer" CdmEntityContainer="ArtistEntities">
-          <EntitySetMapping Name="Admin">
-            <EntityTypeMapping TypeName="ArtistModel.Admin">
-              <MappingFragment StoreEntitySet="Admin">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="ID_Admin" ColumnName="ID_Admin" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Artist">
-            <EntityTypeMapping TypeName="ArtistModel.Artist">
-              <MappingFragment StoreEntitySet="Artist">
-                <ScalarProperty Name="Add" ColumnName="Add" />
-                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Date_death" ColumnName="Date_death" />
-                <ScalarProperty Name="Birth_date" ColumnName="Birth_date" />
-                <ScalarProperty Name="Middle_name" ColumnName="Middle_name" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Surname" ColumnName="Surname" />
-                <ScalarProperty Name="ID_artist" ColumnName="ID_artist" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Avtorization">
-            <EntityTypeMapping TypeName="ArtistModel.Avtorization">
-              <MappingFragment StoreEntitySet="Avtorization">
-                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
-                <ScalarProperty Name="ID_Admin" ColumnName="ID_Admin" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Client">
-            <EntityTypeMapping TypeName="ArtistModel.Client">
-              <MappingFragment StoreEntitySet="Client">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Exhibition">
             <EntityTypeMapping TypeName="ArtistModel.Exhibition">
               <MappingFragment StoreEntitySet="Exhibition">
-                <ScalarProperty Name="ID_Hall" ColumnName="ID_Hall" />
-                <ScalarProperty Name="ID_type_exhibition" ColumnName="ID_type_exhibition" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Information" ColumnName="Information" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID_exhibition" ColumnName="ID_exhibition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Hall">
-            <EntityTypeMapping TypeName="ArtistModel.Hall">
-              <MappingFragment StoreEntitySet="Hall">
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID_Hall" ColumnName="ID_Hall" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Institution">
-            <EntityTypeMapping TypeName="ArtistModel.Institution">
-              <MappingFragment StoreEntitySet="Institution">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID_institution" ColumnName="ID_institution" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Institution_Hall">
-            <EntityTypeMapping TypeName="ArtistModel.Institution_Hall">
-              <MappingFragment StoreEntitySet="Institution_Hall">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ID_hall" ColumnName="ID_hall" />
-                <ScalarProperty Name="ID_institution" ColumnName="ID_institution" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Owner">
-            <EntityTypeMapping TypeName="ArtistModel.Owner">
-              <MappingFragment StoreEntitySet="Owner">
-                <ScalarProperty Name="ID_type_owner" ColumnName="ID_type_owner" />
-                <ScalarProperty Name="ID_Hall" ColumnName="ID_Hall" />
-                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID_owner" ColumnName="ID_owner" />
+          <EntitySetMapping Name="Information_artist">
+            <EntityTypeMapping TypeName="ArtistModel.Information_artist">
+              <MappingFragment StoreEntitySet="Information_artist">
+                <ScalarProperty Name="Biography" ColumnName="Biography" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Birth_date" ColumnName="Birth_date" />
+                <ScalarProperty Name="ID_info" ColumnName="ID_info" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Painting_artist">
             <EntityTypeMapping TypeName="ArtistModel.Painting_artist">
               <MappingFragment StoreEntitySet="Painting_artist">
+                <ScalarProperty Name="Accepted" ColumnName="Accepted" />
+                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
                 <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="ID_Hall" ColumnName="ID_Hall" />
-                <ScalarProperty Name="ID_exhibition" ColumnName="ID_exhibition" />
-                <ScalarProperty Name="ID_artist" ColumnName="ID_artist" />
-                <ScalarProperty Name="Width" ColumnName="Width" />
-                <ScalarProperty Name="Height" ColumnName="Height" />
                 <ScalarProperty Name="Execution" ColumnName="Execution" />
                 <ScalarProperty Name="Creation_date" ColumnName="Creation_date" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID_painting_artist" ColumnName="ID_painting_artist" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="ArtistModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Name_role" ColumnName="Name_role" />
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -799,19 +320,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Type_exhibition">
-            <EntityTypeMapping TypeName="ArtistModel.Type_exhibition">
-              <MappingFragment StoreEntitySet="Type_exhibition">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ArtistModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="ID_info" ColumnName="ID_info" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID_type_exhibition" ColumnName="ID_type_exhibition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Type_owner">
-            <EntityTypeMapping TypeName="ArtistModel.Type_owner">
-              <MappingFragment StoreEntitySet="Type_owner">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID_type_owner" ColumnName="ID_type_owner" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="ID_role" ColumnName="ID_role" />
+                <ScalarProperty Name="ID_user" ColumnName="ID_user" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

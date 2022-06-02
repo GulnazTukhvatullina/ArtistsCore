@@ -9,44 +9,25 @@ namespace ArtistsCore
 {
     public class DataAccess
     {
-        public static List<Artist> GetArtist()
+        public static List<Users> GetArtist()
         {
-            List<Artist> arts = new List<Artist>(bd_connections.connection.Artist.ToList());
-            List<Artist> art = new List<Artist>();
+            List<Users> arts = new List<Users>(bd_connections.connection.Users.ToList());
+            List<Users> art = new List<Users>();
             foreach (var type in arts)
             {
                 art.Add(
-                    new Artist
+                    new Users
                     {
-                        ID_artist = type.ID_artist,
+                        ID_user = type.ID_user,
                         Surname = type.Surname,
-                        Middle_name = type.Middle_name,
                         Name = type.Name,
-                        Image = type.Image
+                        ID_role = type.ID_role
                     });
             }
             return arts;
         }
 
-        public static void AddArtist(Artist art)
-        {
-            try
-            {
-                bd_connections.connection.Artist.Add(art);
-                bd_connections.connection.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-            }
-        }
-
-        public static void DeleteArtist(Artist art)
-        {
-            bd_connections.connection.Artist.Remove(art);
-            bd_connections.connection.SaveChanges();
-        }
-
-        public static List<Painting_artist> GetPainting_Artists()
+        public static List<Painting_artist> GetPaint()
         {
             List<Painting_artist> paints = new List<Painting_artist>(bd_connections.connection.Painting_artist.ToList());
             List<Painting_artist> paint = new List<Painting_artist>();
@@ -57,7 +38,9 @@ namespace ArtistsCore
                     {
                         ID_painting_artist = type.ID_painting_artist,
                         Name = type.Name,
-                        Image = type.Image
+                        ID_user = type.ID_user,
+                        Creation_date = type.Creation_date,
+                        Execution = type.Execution
                     });
             }
             return paints;
@@ -65,27 +48,21 @@ namespace ArtistsCore
 
         public static List<Exhibition> GetExhibitions()
         {
-            return new List<Exhibition>(bd_connections.connection.Exhibition);
-        }
-
-        public List<Hall> GetHalls()
-        {
-            return new List<Hall>(bd_connections.connection.Hall);
-        }
-
-        public List<Institution> GetInstitutions()
-        {
-            return new List<Institution>(bd_connections.connection.Institution);
-        }
-
-        public List<Institution_Hall> GetInstitution_Halls()
-        {
-            return new List<Institution_Hall>(bd_connections.connection.Institution_Hall);
-        }
-
-        public List<Type_exhibition> GetType_Exhibitions()
-        {
-            return new List<Type_exhibition>(bd_connections.connection.Type_exhibition);
+            List<Exhibition> exhibitions = new List<Exhibition>(bd_connections.connection.Exhibition.ToList());
+            List<Exhibition> exhibition = new List<Exhibition>();
+            foreach (var type in exhibitions)
+            {
+                exhibition.Add(
+                    new Exhibition
+                    {
+                        ID_exhibition = type.ID_exhibition,
+                        Name = type.Name,
+                        ID_user = type.ID_user,
+                        Date = type.Date,
+                        Information = type.Information
+                    });
+            }
+            return exhibitions;
         }
     }
 }

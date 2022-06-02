@@ -14,21 +14,14 @@ namespace ArtistsCore
     
     public partial class Exhibition
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Exhibition()
-        {
-            this.Painting_artist = new HashSet<Painting_artist>();
-        }
-    
         public int ID_exhibition { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<int> ID_type_exhibition { get; set; }
-        public Nullable<int> ID_Hall { get; set; }
+        public Nullable<int> ID_user { get; set; }
+        public byte[] Image { get; set; }
+        public string Information { get; set; }
+        public Nullable<bool> Deleted { get; set; }
     
-        public virtual Hall Hall { get; set; }
-        public virtual Type_exhibition Type_exhibition { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Painting_artist> Painting_artist { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

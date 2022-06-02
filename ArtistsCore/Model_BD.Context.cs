@@ -25,18 +25,11 @@ namespace ArtistsCore
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Admin> Admin { get; set; }
-        public virtual DbSet<Artist> Artist { get; set; }
-        public virtual DbSet<Avtorization> Avtorization { get; set; }
-        public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Exhibition> Exhibition { get; set; }
-        public virtual DbSet<Hall> Hall { get; set; }
-        public virtual DbSet<Institution> Institution { get; set; }
-        public virtual DbSet<Institution_Hall> Institution_Hall { get; set; }
-        public virtual DbSet<Owner> Owner { get; set; }
+        public virtual DbSet<Information_artist> Information_artist { get; set; }
         public virtual DbSet<Painting_artist> Painting_artist { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Type_exhibition> Type_exhibition { get; set; }
-        public virtual DbSet<Type_owner> Type_owner { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

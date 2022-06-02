@@ -17,7 +17,7 @@ namespace ArtistWeb.Controllers
 
         public IActionResult PaintArt()
         {
-            var paint = DataAccess.GetPainting_Artists();
+            var paint = DataAccess.GetPaint();
             return View(paint);
         }
 
@@ -26,12 +26,6 @@ namespace ArtistWeb.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Add(Artist artist)
-        {
-            ArtistStorage.Add(artist);
-            return RedirectToAction("Index");
-        }
         [HttpPost]
         public IActionResult Remove(int ID_artist)
         {

@@ -18,16 +18,9 @@ namespace ArtistsCore
         public string Name { get; set; }
         public Nullable<System.DateTime> Creation_date { get; set; }
         public string Execution { get; set; }
-        public Nullable<int> Height { get; set; }
-        public Nullable<int> Width { get; set; }
-        public Nullable<int> ID_artist { get; set; }
-        public Nullable<int> ID_exhibition { get; set; }
-        public Nullable<int> ID_Hall { get; set; }
-        public string Image { get; set; }
-        public Nullable<bool> Deleted { get; set; }
-    
-        public virtual Artist Artist { get; set; }
-        public virtual Exhibition Exhibition { get; set; }
-        public virtual Hall Hall { get; set; }
+        public byte[] Image { get; set; }
+        public bool Deleted { get; set; }
+        public Nullable<int> ID_user { get; set; }
+        public bool Accepted { get; set; }
     }
 }
